@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "nightlightdim",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "Night Light Dimension",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "BeanFeed"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -14,16 +14,19 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/nightlightdim/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "tk.beanfeed.nightlightdim.NightLightDim"
+    ],
+    "client": [
+      "tk.beanfeed.nightlightdim.NightLightDimClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "nightlightdim.mixins.json"
   ],
 
   "depends": {
@@ -34,5 +37,6 @@
   },
   "suggests": {
     "another-mod": "*"
-  }
+  },
+  "accessWidener": "nightlightdim.accesswidener"
 }

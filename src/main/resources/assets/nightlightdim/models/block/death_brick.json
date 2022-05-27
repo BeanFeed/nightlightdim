@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "nightlightdim:block/death_brick",
+    "north": "nightlightdim:block/death_brick_side",
+    "south": "nightlightdim:block/death_brick_side",
+    "east": "nightlightdim:block/death_brick_side",
+    "west": "nightlightdim:block/death_brick_side",
+    "up": "nightlightdim:block/death_brick",
+    "down": "nightlightdim:block/death_brick"
+  }
+}
+

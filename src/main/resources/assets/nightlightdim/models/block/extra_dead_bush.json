@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "nightlightdim:block/extra_dead_bush"
+  }
+}

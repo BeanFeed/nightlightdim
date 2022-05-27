@@ -1,0 +1,54 @@
+{
+  "type": {
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": false,
+    "respawn_anchor_works": false,
+    "bed_works": false,
+    "has_raids": false,
+    "has_skylight": false,
+    "has_ceiling": false,
+    "coordinate_scale": 10,
+    "ambient_light": 0.3,
+    "fixed_time": 18000,
+    "logical_height": 256,
+    "effects": "minecraft:overworld",
+    "infiniburn": "#minecraft:infiniburn_overworld",
+    "min_y": -64,
+    "height": 384
+  },
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 0,
+    "settings": "nightlightdim:nld_noise_setting",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "nightlightdim:death_plains",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.01,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 1,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "nightlightdim:soul_savanna",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0.2,
+            "erosion": 0,
+            "weirdness": 1,
+            "depth": 0.4,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
+}
