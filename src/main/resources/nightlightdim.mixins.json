@@ -4,6 +4,7 @@
   "package": "tk.beanfeed.nightlightdim.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "StructureFeatureAccessor"
   ],
   "client": [
 

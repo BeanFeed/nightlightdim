@@ -42,16 +42,8 @@ public class NLPortalBlock extends Block {
             if (serverWorld == null) {
                 return;
             }
-            if(registryKey == NightLightDim.NIGHTLIGHT) {
-                FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(new Vec3d(world.random.nextInt(-10000, 10000), 100, world.random.nextInt(-10000, 10000)), new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
-            }else
-            {
-                if(entity instanceof ServerPlayerEntity && ((ServerPlayerEntity)entity).getSpawnPointPosition() != null) {
-                    FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(BlockPosToVec3D(((ServerPlayerEntity)entity).getSpawnPointPosition()), new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
-                }else {
-                    FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(BlockPosToVec3D(((ServerWorld) world).getSpawnPos()), new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
-                }
-            }
+            Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX(), 100, BlockPosToVec3D(pos).getZ());
+            FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
         }
     }
 

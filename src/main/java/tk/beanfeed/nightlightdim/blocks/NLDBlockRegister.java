@@ -22,6 +22,7 @@ public class NLDBlockRegister {
     public static final Block SOUL_BRICK = new Block(FabricBlockSettings.of(Material.STONE).strength(15.0f).sounds(BlockSoundGroup.STONE));
     public static final DeathPlant EXTRA_DEAD_BUSH = new DeathPlant(StatusEffects.WITHER, 100, FabricBlockSettings.copy(Blocks.DEAD_BUSH).strength(0.0f).nonOpaque().sounds(BlockSoundGroup.GRASS));
     public static final NLPortalBlock PORTAL = new NLPortalBlock(FabricBlockSettings.of(Material.PORTAL).strength(1000000.0f).sounds(BlockSoundGroup.GLASS));
+    public static final NLPortalInitiator PORTAL_INITIATOR = new NLPortalInitiator(FabricBlockSettings.of(Material.STONE).strength(1000000.0f).sounds(BlockSoundGroup.STONE));
 
     public static void register(){
         Registry.register(Registry.BLOCK, new Identifier(NightLightDim.MOD_ID, "death_sand"), DEATH_SAND);
@@ -38,5 +39,7 @@ public class NLDBlockRegister {
         Registry.register(Registry.ITEM, new Identifier(NightLightDim.MOD_ID, "extra_dead_bush"), new BlockItem(EXTRA_DEAD_BUSH, new FabricItemSettings().group(NightLightDim.NLD)));
         Registry.register(Registry.BLOCK, new Identifier(NightLightDim.MOD_ID, "nlportal"), PORTAL);
         Registry.register(Registry.ITEM, new Identifier(NightLightDim.MOD_ID, "nlportal"), new BlockItem(PORTAL, new FabricItemSettings()));
+        Registry.register(Registry.BLOCK, new Identifier(NightLightDim.MOD_ID, "nlportalinitiator"), PORTAL_INITIATOR);
+        Registry.register(Registry.ITEM, new Identifier(NightLightDim.MOD_ID, "nlportalinitiator"), new BlockItem(PORTAL_INITIATOR, new FabricItemSettings().group(NightLightDim.NLD)));
     }
 }

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+
+  "_comment": "This Selects Where TO Generate Structure",
+  "values": [
+    "minecraft:plains",
+    "nightlightdim:death_plains"
+  ]
+}

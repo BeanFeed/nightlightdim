@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:village",
+
+  "config": {
+    "start_pool": "nightlightdim:nl_well",
+    "size": 1,
+    "start_height": -20
+  },
+  "biomes": "#nightlightdim:has_structure/nl_well",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+
+}
