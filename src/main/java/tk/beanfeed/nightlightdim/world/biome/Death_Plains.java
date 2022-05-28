@@ -19,7 +19,7 @@ public class Death_Plains {
                 .temperature(0.8f)
                 .downfall(0.0f)
                 .effects(new BiomeEffects.Builder()
-                        .fogColor(4342338)
+                        .fogColor(2894892)
                         .waterColor(328965)
                         .waterFogColor(7237230)
                         .foliageColor(0)
