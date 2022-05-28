@@ -56,8 +56,9 @@ public class NLPortalBlock extends Block {
                 le.fallDistance = -20;
             }
 
-
-            FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 5.0D, 0.0D), 0.0F, 0.0F));
+            if(entity instanceof LivingEntity){
+                if(((LivingEntity)entity).getHealth() != 0.0f){FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 5.0D, 0.0D), 0.0F, 0.0F));}
+            }else{FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 5.0D, 0.0D), 0.0F, 0.0F));}
 
         }
     }

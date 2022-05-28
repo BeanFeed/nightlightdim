@@ -17,11 +17,15 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class NLPortalInitiator extends Block {
     public NLPortalInitiator(Settings settings) {
         super(settings);
     }
     protected static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.D, 16.0D);
+    private boolean ignite = false;
+    private int igCounter = 0;
 
     public void ignite(World world, BlockPos pos){
         /*
@@ -66,6 +70,7 @@ public class NLPortalInitiator extends Block {
     public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
         return VoxelShapes.fullCube();
     }
+
     private Vec3d BlockPosToVec3D(BlockPos pos){
         return new Vec3d(pos.getX(), pos.getY(), pos.getZ());
 
@@ -84,5 +89,7 @@ public class NLPortalInitiator extends Block {
 
         }
     }
+
+
 
 }
