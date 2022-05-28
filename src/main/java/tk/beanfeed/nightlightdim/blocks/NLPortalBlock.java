@@ -50,15 +50,15 @@ public class NLPortalBlock extends Block {
             if (serverWorld == null) {
                 return;
             }
-            Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX() + 1, 100, BlockPosToVec3D(pos).getZ() + 1);
+            Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX() + 1, 320, BlockPosToVec3D(pos).getZ() + 1);
 
             if(entity instanceof LivingEntity le){
-                le.fallDistance = -20;
+                le.fallDistance = 0;
             }
 
             if(entity instanceof LivingEntity){
-                if(((LivingEntity)entity).getHealth() != 0.0f){FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 5.0D, 0.0D), 0.0F, 0.0F));}
-            }else{FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 5.0D, 0.0D), 0.0F, 0.0F));}
+                if(((LivingEntity)entity).getHealth() != 0.0f){FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
+            }else{FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
 
         }
     }
