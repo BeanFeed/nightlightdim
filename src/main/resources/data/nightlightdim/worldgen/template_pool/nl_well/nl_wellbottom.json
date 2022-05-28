@@ -1,11 +1,11 @@
 {
-  "name": "nightlightdim:nl_well",
+  "name": "nightlightdim:nl_well/nl_wellbottom",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "nightlightdim:nl_well",
+        "location": "nightlightdim:nl_wellbottom",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "nightlightdim:death_stone"
+        }
+    },
+    "result": {
+        "item": "nightlightdim:death_brick",
+        "count": 4
+    }
+}

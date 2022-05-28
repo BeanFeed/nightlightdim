@@ -22,7 +22,7 @@ public class NL_Well extends StructureFeature<StructurePoolFeatureConfig> {
 
     public static final Codec<StructurePoolFeatureConfig> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
-                            StructurePool.REGISTRY_CODEC.fieldOf("nl_well").forGetter(StructurePoolFeatureConfig::getStartPool),
+                            StructurePool.REGISTRY_CODEC.fieldOf("nl_well/nl_welltop").forGetter(StructurePoolFeatureConfig::getStartPool),
                             Codec.intRange(0, 30).fieldOf("size").forGetter(StructurePoolFeatureConfig::getSize)
                     )
                     .apply(instance, StructurePoolFeatureConfig::new)

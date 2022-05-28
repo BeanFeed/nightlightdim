@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tk.beanfeed.nightlightdim.blocks.NLDBlockRegister;
+import tk.beanfeed.nightlightdim.items.NLDItemRegister;
 import tk.beanfeed.nightlightdim.structure.NLDStructuresRegistry;
 import tk.beanfeed.nightlightdim.tool.NLDToolRegister;
 import tk.beanfeed.nightlightdim.world.biome.NightLightDimBiomes;
@@ -35,6 +36,7 @@ public class NightLightDim implements ModInitializer{
         NightLightDimBiomes.loadBiomes();
         NLDToolRegister.register();
         NLDStructuresRegistry.registerStructures();
+        NLDItemRegister.register();
     }
 
 }

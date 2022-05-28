@@ -2,9 +2,9 @@
   "type": "minecraft:village",
 
   "config": {
-    "start_pool": "nightlightdim:nl_well",
-    "size": 1,
-    "start_height": -20
+    "start_pool": "nightlightdim:nl_well/nl_welltop",
+    "size": 1
+
   },
   "biomes": "#nightlightdim:has_structure/nl_well",
   "adapt_noise": false,

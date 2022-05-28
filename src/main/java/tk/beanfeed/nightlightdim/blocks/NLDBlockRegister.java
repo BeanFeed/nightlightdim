@@ -15,14 +15,14 @@ import net.minecraft.util.registry.Registry;
 import tk.beanfeed.nightlightdim.NightLightDim;
 
 public class NLDBlockRegister {
-    public static final DeathBlock DEATH_SAND = new DeathBlock(FabricBlockSettings.of(Material.SOIL).strength(5.0f).sounds(BlockSoundGroup.SAND));
-    public static final Block SOUL_STONE = new Block(FabricBlockSettings.of(Material.STONE).strength(15.0f).sounds(BlockSoundGroup.STONE));
-    public static final DeathBlock DEATH_STONE = new DeathBlock(FabricBlockSettings.of(Material.STONE).strength(20.0f).sounds(BlockSoundGroup.STONE).requiresTool());
-    public static final DeathBlock DEATH_BRICK = new DeathBlock(FabricBlockSettings.of(Material.STONE).strength(20.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block SOUL_BRICK = new Block(FabricBlockSettings.of(Material.STONE).strength(15.0f).sounds(BlockSoundGroup.STONE));
+    public static final DeathBlock DEATH_SAND = new DeathBlock(FabricBlockSettings.of(Material.SOIL).strength(1.0f).sounds(BlockSoundGroup.SAND));
+    public static final Block SOUL_STONE = new Block(FabricBlockSettings.of(Material.STONE).strength(10.0f).sounds(BlockSoundGroup.STONE).requiresTool());
+    public static final DeathBlock DEATH_STONE = new DeathBlock(FabricBlockSettings.of(Material.STONE).strength(12.0f).sounds(BlockSoundGroup.STONE).requiresTool());
+    public static final DeathBlock DEATH_BRICK = new DeathBlock(FabricBlockSettings.of(Material.STONE).strength(12.0f).sounds(BlockSoundGroup.STONE).requiresTool());
+    public static final Block SOUL_BRICK = new Block(FabricBlockSettings.of(Material.STONE).strength(10.0f).sounds(BlockSoundGroup.STONE).requiresTool());
     public static final DeathPlant EXTRA_DEAD_BUSH = new DeathPlant(StatusEffects.WITHER, 100, FabricBlockSettings.copy(Blocks.DEAD_BUSH).strength(0.0f).nonOpaque().sounds(BlockSoundGroup.GRASS));
-    public static final NLPortalBlock PORTAL = new NLPortalBlock(FabricBlockSettings.of(Material.PORTAL).strength(1000000.0f).sounds(BlockSoundGroup.GLASS));
-    public static final NLPortalInitiator PORTAL_INITIATOR = new NLPortalInitiator(FabricBlockSettings.of(Material.STONE).strength(1000000.0f).sounds(BlockSoundGroup.STONE));
+    public static final NLPortalBlock PORTAL = new NLPortalBlock(FabricBlockSettings.of(Material.PORTAL).strength(10000000000.0f).sounds(BlockSoundGroup.GLASS));
+    public static final NLPortalInitiator PORTAL_INITIATOR = new NLPortalInitiator(FabricBlockSettings.of(Material.STONE).strength(10000000000.0f).sounds(BlockSoundGroup.STONE));
 
     public static void register(){
         Registry.register(Registry.BLOCK, new Identifier(NightLightDim.MOD_ID, "death_sand"), DEATH_SAND);

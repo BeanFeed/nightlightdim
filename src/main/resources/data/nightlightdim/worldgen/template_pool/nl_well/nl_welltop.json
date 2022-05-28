@@ -1,0 +1,15 @@
+{
+  "name": "nightlightdim:nl_well/nl_welltop",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "nightlightdim:nl_well",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

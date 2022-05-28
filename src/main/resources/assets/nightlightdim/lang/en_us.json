@@ -1,0 +1,13 @@
+{
+  "itemGroup.nightlightdim.nld": "NightLight",
+  "block.nightlightdim.death_sand": "Death Sand",
+  "block.nightlightdim.death_stone": "Death Stone",
+  "block.nightlightdim.death_brick": "Death Brick",
+  "block.nightlightdim.soul_stone": "Soul Stone",
+  "block.nightlightdim.soul_brick": "Soul Brick",
+  "block.nightlightdim.extra_dead_bush": "Extra Dead Bush",
+  "block.nightlightdim.nlportalinitiator": "NightLight Portal Initiator",
+  "block.nightlightdim.nlportal": "NightLight Portal",
+  "item.nightlightdim.reviving_rod": "Reviving Rod",
+  "item.nightlightdim.dead_stick": "Dead Stick"
+}
