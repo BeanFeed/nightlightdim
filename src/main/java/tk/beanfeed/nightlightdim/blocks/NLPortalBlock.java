@@ -51,7 +51,7 @@ public class NLPortalBlock extends Block {
             }
 
         }
-        return 100.0D;
+        return 100.0;
     }
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world instanceof ServerWorld && !entity.hasVehicle() && !entity.hasPassengers() && entity.canUsePortals() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset((double)(-pos.getX()), (double)(-pos.getY()), (double)(-pos.getZ()))), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
