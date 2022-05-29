@@ -2,6 +2,7 @@ package tk.beanfeed.nightlightdim.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -40,6 +41,18 @@ public class NLPortalBlock extends Block {
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
         entity.handleFallDamage(fallDistance, 0.0F, DamageSource.FALL);
     }
+    private double getSurfaceY(ServerWorld serverWorld, BlockPos pos){
+        double yPos = 0;
+        for(int i = 320; i > -64; i--){
+            BlockState block = serverWorld.getBlockState(new BlockPos(pos.getX(), i, pos.getZ()));
+            if(block.getBlock() == Blocks.STONE_BRICK_SLAB){
+                yPos = i;
+                return yPos;
+            }
+
+        }
+        return 100.0D;
+    }
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world instanceof ServerWorld && !entity.hasVehicle() && !entity.hasPassengers() && entity.canUsePortals() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset((double)(-pos.getX()), (double)(-pos.getY()), (double)(-pos.getZ()))), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
             RegistryKey<World> registryKey = world.getRegistryKey() == NightLightDim.NIGHTLIGHT ? World.OVERWORLD : NightLightDim.NIGHTLIGHT;
@@ -50,7 +63,9 @@ public class NLPortalBlock extends Block {
             if (serverWorld == null) {
                 return;
             }
-            Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX() + 1, 320, BlockPosToVec3D(pos).getZ() + 1);
+            double yPos = getSurfaceY(serverWorld, pos);
+            System.out.println(yPos);
+            Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX() + 1, yPos, BlockPosToVec3D(pos).getZ() + 1);
 
             if(entity instanceof LivingEntity le){
                 le.fallDistance = 0;
