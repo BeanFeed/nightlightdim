@@ -1,5 +1,7 @@
 package tk.beanfeed.nightlightdim.world.biome;
 
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
@@ -38,7 +40,7 @@ public class Death_Plains {
 
     private static SpawnSettings createSpawnSettings(){
         SpawnSettings.Builder builder = new SpawnSettings.Builder();
-
+        builder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON , 10, 1, 3));
         return builder.build();
     }
 
