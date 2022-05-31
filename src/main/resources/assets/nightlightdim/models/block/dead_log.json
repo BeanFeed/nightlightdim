@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "nightlightdim:block/dead_log_top",
+    "side": "nightlightdim:block/dead_log_side"
+  }
+}
+

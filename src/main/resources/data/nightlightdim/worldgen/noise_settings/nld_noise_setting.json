@@ -45,11 +45,11 @@
     "fluid_level_floodedness": 0,
     "fluid_level_spread": 0,
     "lava": 0,
-    "temperature": 0,
+    "temperature": 0.2,
     "vegetation": 0,
-    "continents": 0,
-    "erosion": 0,
-    "depth": 0,
+    "continents": "minecraft:overworld/continents",
+    "erosion": "minecraft:overworld/erosion",
+    "depth": "minecraft:overworld/depth",
     "ridges": 0,
     "initial_density_without_jaggedness": 0,
     "final_density": {
@@ -101,7 +101,7 @@
         "type": "minecraft:condition",
         "if_true": {
           "type": "minecraft:vertical_gradient",
-          "random_name": "minecraft:bedrock_flooer",
+          "random_name": "minecraft:bedrock_floor",
           "true_at_and_below": {
             "above_bottom": 0
           },
@@ -153,20 +153,31 @@
               ]
             },
             "then_run": {
-              "type": "minecraft:condition",
-              "if_true": {
-                "type": "minecraft:stone_depth",
-                "offset": 0,
-                "surface_type": "floor",
-                "add_surface_depth": false,
-                "secondary_depth_range": 0
-              },
-              "then_run": {
-                "type": "minecraft:block",
-                "result_state": {
-                  "Name": "minecraft:soul_soil"
+              "type": "minecraft:sequence",
+              "sequence": [
+                {
+                  "type": "minecraft:block",
+                  "result_state": {
+                    "Name": "nightlightdim:soul_stone"
+                  }
+                },
+                {
+                  "type": "minecraft:condition",
+                  "if_true": {
+                    "type": "minecraft:stone_depth",
+                    "offset": 0,
+                    "surface_type": "floor",
+                    "add_surface_depth": false,
+                    "secondary_depth_range": 0
+                  },
+                  "then_run": {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:soul_soil"
+                    }
+                  }
                 }
-              }
+              ]
             }
           }
         ]

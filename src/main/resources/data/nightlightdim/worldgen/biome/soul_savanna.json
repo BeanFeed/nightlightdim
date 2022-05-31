@@ -1,0 +1,29 @@
+{
+  "temperature": 0.8,
+  "downfall": 0,
+  "precipitation": "none",
+  "temperature_modifier": "none",
+  "category": "plains",
+  "effects": {
+    "sky_color": 4733190,
+    "fog_color": 3940879,
+    "water_color": 2307915,
+    "water_fog_color": 1710618,
+    "grass_color": 5125144,
+    "foliage_color": 5125144,
+    "grass_color_modifier": "none"
+  },
+  "spawners": {
+    "creature": [
+      {
+        "type": "minecraft:skeleton",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": []
+}

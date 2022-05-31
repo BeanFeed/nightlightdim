@@ -1,0 +1,46 @@
+{
+  "temperature": 0.8,
+  "downfall": 0,
+  "precipitation": "none",
+  "temperature_modifier": "none",
+  "category": "plains",
+  "effects": {
+    "sky_color": 4671303,
+    "fog_color": 2894892,
+    "water_color": 328965,
+    "water_fog_color": 7237230,
+    "grass_color": 0,
+    "foliage_color": 0,
+    "grass_color_modifier": "none",
+    "ambient_sound": "nightlightdim:nightlight"
+  },
+  "spawners": {
+    "creature": [
+      {
+        "type": "minecraft:wither_skeleton",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "nightlightdim:ore_ds_emerald"
+    ],
+    [],
+    [
+      "nightlightdim:extra_dead_bush",
+      "nightlightdim:dead_tree"
+    ],
+    []
+  ]
+}

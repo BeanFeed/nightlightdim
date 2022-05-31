@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "nightlightdim:block/stripped_dead_log_side",
+    "side": "nightlightdim:block/stripped_dead_log_side"
+  }
+}
+

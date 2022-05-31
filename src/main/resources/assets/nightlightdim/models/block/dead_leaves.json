@@ -1,0 +1,7 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "nightlightdim:block/dead_leaves"
+  }
+}
+

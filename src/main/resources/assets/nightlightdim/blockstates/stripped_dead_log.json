@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "nightlightdim:block/stripped_dead_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "nightlightdim:block/stripped_dead_log"
+    },
+    "axis=z": {
+      "model": "nightlightdim:block/stripped_dead_log",
+      "x": 90
+    }
+  }
+}
+

@@ -9,7 +9,7 @@
     "has_skylight": true,
     "has_ceiling": false,
     "coordinate_scale": 10,
-    "ambient_light": 0.0,
+    "ambient_light": 0.01,
     "fixed_time": 16000,
     "logical_height": 256,
     "effects": "minecraft:overworld",
@@ -27,11 +27,11 @@
         {
           "biome": "nightlightdim:death_plains",
           "parameters": {
-            "temperature": 0.3,
-            "humidity": 0.01,
+            "temperature": 0.2,
+            "humidity": 1,
             "continentalness": 0,
             "erosion": 0,
-            "weirdness": 1,
+            "weirdness": 0,
             "depth": 0,
             "offset": 0
           }
@@ -39,12 +39,12 @@
         {
           "biome": "nightlightdim:soul_savanna",
           "parameters": {
-            "temperature": 0,
-            "humidity": 0,
-            "continentalness": 0.2,
-            "erosion": 0,
-            "weirdness": 1,
-            "depth": 0.4,
+            "temperature": 0.5,
+            "humidity": 0.1,
+            "continentalness": 1,
+            "erosion": -0.7,
+            "weirdness": 0,
+            "depth": 0.5,
             "offset": 0
           }
         }
