@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -41,6 +42,11 @@ public class NLPortalBlock extends Block {
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
         entity.handleFallDamage(fallDistance, 0.0F, DamageSource.FALL);
     }
+    private void SetSitting(Entity entity){
+        if(entity instanceof TameableEntity Te){
+            Te.setSitting(false);
+        }
+    }
     private double getSurfaceY(ServerWorld serverWorld, BlockPos pos){
         double yPos = 0;
         for(int i = 320; i > -64; i--){
@@ -64,13 +70,12 @@ public class NLPortalBlock extends Block {
                 return;
             }
             double yPos = getSurfaceY(serverWorld, pos);
-            System.out.println(yPos);
             Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX() + 1, yPos, BlockPosToVec3D(pos).getZ() + 1);
 
             if(entity instanceof LivingEntity le){
                 le.fallDistance = 0;
             }
-
+            SetSitting(entity);
             if(entity instanceof LivingEntity){
                 if(((LivingEntity)entity).getHealth() != 0.0f){FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
             }else{FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
