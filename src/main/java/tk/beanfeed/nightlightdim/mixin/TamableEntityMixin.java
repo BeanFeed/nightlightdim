@@ -89,6 +89,7 @@ public abstract class TamableEntityMixin extends AnimalEntity implements Tameabl
         double yPos = getSurfaceY(serverWorld, pet.getBlockPos());
         Vec3d spawnPos = new Vec3d(pet.getX(), yPos + 1, pet.getZ());
         player.sendMessage(Text.of("Reviving At§a [" + (int)Math.round(spawnPos.x) + ", ~, " + (int)Math.round(spawnPos.z) + "]"), false);
+        pet.fallDistance = 0.0f;
         FabricDimensions.teleport(pet, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
 
         LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
