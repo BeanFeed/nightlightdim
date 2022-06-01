@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "nightlightdim:dead_log"
+    }
+  },
+  "result": {
+    "item": "nightlightdim:dead_wood",
+    "count": 3
+  }
+}

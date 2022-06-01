@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "nightlightdim:dead_log"
+    }
+  ],
+  "result": {
+    "item": "nightlightdim:dead_planks",
+    "count": 4
+  }
+}
