@@ -8,6 +8,13 @@
   "block.nightlightdim.extra_dead_bush": "Extra Dead Bush",
   "block.nightlightdim.nlportalinitiator": "NightLight Portal Initiator",
   "block.nightlightdim.nlportal": "NightLight Portal",
+  "block.nightlightdim.deathstone_emerald_ore": "Death Stone Emerald Ore",
+  "block.nightlightdim.dead_log": "Dead Log",
+  "block.nightlightdim.dead_wood": "Dead Wood",
+  "block.nightlightdim.stripped_dead_log": "Stripped Dead Log",
+  "block.nightlightdim.stripped_dead_wood": "Stripped Dead Wood",
+  "block.nightlightdim.dead_leaves": "Dead Leaves",
+  "block.nightlightdim.dead_sapling": "Dead Sapling",
   "item.nightlightdim.reviving_rod": "Reviving Rod",
   "item.nightlightdim.dead_stick": "Dead Stick"
 }
