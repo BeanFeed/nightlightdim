@@ -1,6 +1,5 @@
-package tk.beanfeed.nightlightdim.tool;
+package tk.beanfeed.nightlightdim.items.tool;
 
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import tk.beanfeed.nightlightdim.blocks.NLDBlockRegister;

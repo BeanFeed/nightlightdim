@@ -9,6 +9,7 @@
   "block.nightlightdim.nlportalinitiator": "NightLight Portal Initiator",
   "block.nightlightdim.nlportal": "NightLight Portal",
   "block.nightlightdim.deathstone_emerald_ore": "Death Stone Emerald Ore",
+  "block.nightlightdim.deathstone_redstone_ore": "Death Stone Redstone Ore",
   "block.nightlightdim.dead_log": "Dead Log",
   "block.nightlightdim.dead_wood": "Dead Wood",
   "block.nightlightdim.stripped_dead_log": "Stripped Dead Log",
@@ -16,6 +17,12 @@
   "block.nightlightdim.dead_leaves": "Dead Leaves",
   "block.nightlightdim.dead_sapling": "Dead Sapling",
   "block.nightlightdim.dead_planks": "Dead Planks",
+  "block.nightlightdim.soul_weed": "Soul Weed",
+  "item.nightlightdim.soul_berries": "Soul Berries",
   "item.nightlightdim.reviving_rod": "Reviving Rod",
-  "item.nightlightdim.dead_stick": "Dead Stick"
+  "item.nightlightdim.dead_stick": "Dead Stick",
+  "item.minecraft.potion.effect.soul_bonding": "Soul Bonding Potion",
+  "item.minecraft.splash_potion.effect.soul_bonding": "Soul Bonding Splash Potion",
+  "item.minecraft.lingering_potion.effect.soul_bonding": "Soul Bonding Lingering Potion",
+  "effect.nightlightdim.soul_bonding": "Soul Bonding"
 }

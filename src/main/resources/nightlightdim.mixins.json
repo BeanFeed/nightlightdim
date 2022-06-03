@@ -4,10 +4,10 @@
   "package": "tk.beanfeed.nightlightdim.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BrewingRecipeRegistryMixin",
     "TamableEntityMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1

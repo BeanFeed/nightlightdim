@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nightlightdim:item/dead_stick"
+    "layer0": "nightlightdim:item/soul_berries"
   }
 }

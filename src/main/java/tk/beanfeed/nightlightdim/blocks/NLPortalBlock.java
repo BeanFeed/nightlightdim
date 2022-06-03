@@ -58,6 +58,18 @@ public class NLPortalBlock extends Block {
 
         }
         return 100.0;
+
+    }private double getPortalY(ServerWorld serverWorld, BlockPos pos){
+        double yPos = 0;
+        for(int i = 320; i > -64; i--){
+            BlockState block = serverWorld.getBlockState(new BlockPos(pos.getX(), i, pos.getZ()));
+            if(block.getBlock() == NLDBlockRegister.PORTAL_INITIATOR){
+                yPos = i;
+                return yPos;
+            }
+
+        }
+        return getSurfaceY(serverWorld, pos);
     }
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world instanceof ServerWorld && !entity.hasVehicle() && !entity.hasPassengers() && entity.canUsePortals() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset((double)(-pos.getX()), (double)(-pos.getY()), (double)(-pos.getZ()))), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
@@ -70,14 +82,22 @@ public class NLPortalBlock extends Block {
                 return;
             }
             double yPos = getSurfaceY(serverWorld, pos);
+            double pyPos = getPortalY(serverWorld, pos);
             Vec3d spawnPos = new Vec3d(BlockPosToVec3D(pos).getX() + 1, yPos, BlockPosToVec3D(pos).getZ() + 1);
+            Vec3d PlayerspawnPos = new Vec3d(BlockPosToVec3D(pos).getX()+ 0.5, pyPos + 5, BlockPosToVec3D(pos).getZ() + 0.5);
 
             if(entity instanceof LivingEntity le){
                 le.fallDistance = 0;
             }
             SetSitting(entity);
-            if(entity instanceof LivingEntity){
-                if(((LivingEntity)entity).getHealth() != 0.0f){FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
+            if(entity instanceof LivingEntity Le){
+                if(Le.getHealth() != 0.0f){
+                    if(Le instanceof PlayerEntity){
+                        Le.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 160, 2));
+                        FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(PlayerspawnPos, new Vec3d(0.0D, 10.0D, 0.0D), 0.0F, 0.0F));
+
+                    }else{FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
+                }
             }else{FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));}
 
         }

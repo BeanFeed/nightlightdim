@@ -1,4 +1,4 @@
-package tk.beanfeed.nightlightdim.tool;
+package tk.beanfeed.nightlightdim.items.tool;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;

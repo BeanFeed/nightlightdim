@@ -3,7 +3,6 @@ package tk.beanfeed.nightlightdim.mixin;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
@@ -12,9 +11,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.ServerConfigHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -30,11 +27,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tk.beanfeed.nightlightdim.Interfaces.TameableEntityExt;
 import tk.beanfeed.nightlightdim.NightLightDim;
-import tk.beanfeed.nightlightdim.blocks.NLDBlockRegister;
-import tk.beanfeed.nightlightdim.items.NLDItemRegister;
-import tk.beanfeed.nightlightdim.tool.NLDToolRegister;
-
-import java.util.UUID;
+import tk.beanfeed.nightlightdim.statuseffects.NLDStatusEffectRegister;
+import tk.beanfeed.nightlightdim.items.tool.NLDToolRegister;
 
 @Mixin(TameableEntity.class)
 public abstract class TamableEntityMixin extends AnimalEntity implements TameableEntityExt {
@@ -50,6 +44,8 @@ public abstract class TamableEntityMixin extends AnimalEntity implements Tameabl
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putBoolean("isRevived", isRevived);
     }
+    @Inject(at = @At("TAIL"), method = "Lnet/minecraft/entity/passive/TameableEntity;readCustomDataFromNbt(Lnet/minecraft/nbt/NbtCompound;)V", cancellable = true)
+    public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {isRevived = nbt.getBoolean("isRevived");}
     @Inject(at = @At("HEAD"), method = "Lnet/minecraft/entity/passive/TameableEntity;onDeath(Lnet/minecraft/entity/damage/DamageSource;)V", cancellable = true)
     public void onDeath(DamageSource source, CallbackInfo ci) {
         TameableEntity pet = (TameableEntity) (Object) this;
@@ -62,15 +58,11 @@ public abstract class TamableEntityMixin extends AnimalEntity implements Tameabl
         ci.cancel();
     }
 
-    @Inject(at = @At("TAIL"), method = "Lnet/minecraft/entity/passive/TameableEntity;readCustomDataFromNbt(Lnet/minecraft/nbt/NbtCompound;)V", cancellable = true)
-    public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
-        isRevived = nbt.getBoolean("isRevived");
 
-    }
     public void tick(){
         if(!this.world.isClient && this.isAlive() && !this.isAiDisabled()){
             RegistryKey<World> world = this.getWorld().getRegistryKey();
-            if(world != NightLightDim.NIGHTLIGHT && this.isRevived()){
+            if(world != NightLightDim.NIGHTLIGHT && this.isRevived() && !this.hasStatusEffect(NLDStatusEffectRegister.SOUL_BOND)){
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 1, 10));
             }
         }

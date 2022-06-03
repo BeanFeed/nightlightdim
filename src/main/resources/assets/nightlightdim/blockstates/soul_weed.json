@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "nightlightdim:block/soul_weed_stage_0"
+    },
+    "age=1": {
+      "model": "nightlightdim:block/soul_weed_stage_1"
+    },
+    "age=2": {
+      "model": "nightlightdim:block/soul_weed_stage_2"
+    },
+    "age=3": {
+      "model": "nightlightdim:block/soul_weed_stage_3"
+    }
+  }
+}
+

@@ -5,7 +5,9 @@
     "nightlightdim:death_brick",
     "nightlightdim:soul_stone",
     "nightlightdim:soul_brick",
-    "nightlightdim:deathstone_emerald_ore"
+    "nightlightdim:deathstone_emerald_ore",
+    "nightlightdim:deathstone_redstone_ore",
+    "nightlightdim:deathstone_condensed_soul_ore"
   ]
 }
 

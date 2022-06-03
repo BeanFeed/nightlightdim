@@ -1,4 +1,4 @@
-package tk.beanfeed.nightlightdim.tool;
+package tk.beanfeed.nightlightdim.items.tool;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -8,9 +8,6 @@ import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import tk.beanfeed.nightlightdim.NightLightDim;
 
 public class RevivingRod extends ToolItem {
     public RevivingRod(ToolMaterial material, Settings settings) {

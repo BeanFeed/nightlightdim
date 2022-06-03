@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "nightlightdim:block/soul_weed_stage_0"
+  }
+}
+

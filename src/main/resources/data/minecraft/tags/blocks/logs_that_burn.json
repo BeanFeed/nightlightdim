@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#nightlightdim:dead_logs"
+    "nightlightdim:dead_log",
+    "nightlightdim:dead_wood",
+    "nightlightdim:stripped_dead_log",
+    "nightlightdim:stripped_dead_wood"
   ]
 }
