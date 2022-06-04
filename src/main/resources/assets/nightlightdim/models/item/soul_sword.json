@@ -1,0 +1,42 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "nightlightdim:item/soul_sword"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-15, -90, 35],
+			"translation": [0, 16.5, 0],
+			"scale": [2, 2, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [59, 90, 0],
+			"translation": [0.75, 15, 2.75],
+			"scale": [2, 2, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [63, -90, 0],
+			"translation": [0.25, 15, 3.25],
+			"scale": [2, 2, 1]
+		},
+		"ground": {
+			"translation": [9.5, 13.25, 0],
+			"scale": [2, 2, 1]
+		},
+		"gui": {
+			"rotation": [1, 0, 0],
+			"translation": [4, 4, 0],
+			"scale": [1.5, 1.5, 1]
+		},
+		"head": {
+			"rotation": [-24, 90, 0],
+			"translation": [0, 12, -27],
+			"scale": [2.31, 2.31, 1]
+		},
+		"fixed": {
+			"translation": [2.75, 2.75, 0],
+			"scale": [1.5, 1.5, 1]
+		}
+	}
+}

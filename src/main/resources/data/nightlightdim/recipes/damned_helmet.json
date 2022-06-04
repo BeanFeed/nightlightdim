@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "R R"
+  ],
+  "key": {
+    "i": {
+      "item": "nightlightdim:condensed_soul_ingot"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "nightlightdim:damned_helmet",
+    "count": 1
+  }
+}

@@ -1,6 +1,5 @@
 package tk.beanfeed.nightlightdim.Interfaces;
 
-public interface TameableEntityExt {
+public interface PlayerEntityMixinExt {
 boolean isRevived();
-boolean hasSoulBond();
 }

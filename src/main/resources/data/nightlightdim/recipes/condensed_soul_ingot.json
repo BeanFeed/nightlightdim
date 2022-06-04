@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "nightlightdim:deathstone_condensed_soul_ore"
+  },
+  "result": "nightlightdim:condensed_soul_ingot",
+  "experience": 1.1,
+  "cookingtime": 300
+}

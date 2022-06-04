@@ -33,7 +33,7 @@ import tk.beanfeed.nightlightdim.items.tool.NLDToolRegister;
 @Mixin(TameableEntity.class)
 public abstract class TamableEntityMixin extends AnimalEntity implements TameableEntityExt {
     boolean isRevived = false;
-
+    boolean hasSoulBond = false;
     protected TamableEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -43,9 +43,13 @@ public abstract class TamableEntityMixin extends AnimalEntity implements Tameabl
     @Inject(at = @At("TAIL"), method = "Lnet/minecraft/entity/passive/TameableEntity;writeCustomDataToNbt(Lnet/minecraft/nbt/NbtCompound;)V", cancellable = true)
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putBoolean("isRevived", isRevived);
+        nbt.putBoolean("hasSoulBond", hasSoulBond);
     }
     @Inject(at = @At("TAIL"), method = "Lnet/minecraft/entity/passive/TameableEntity;readCustomDataFromNbt(Lnet/minecraft/nbt/NbtCompound;)V", cancellable = true)
-    public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {isRevived = nbt.getBoolean("isRevived");}
+    public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+        isRevived = nbt.getBoolean("isRevived");
+        hasSoulBond = nbt.getBoolean("hasSoulBond");
+    }
     @Inject(at = @At("HEAD"), method = "Lnet/minecraft/entity/passive/TameableEntity;onDeath(Lnet/minecraft/entity/damage/DamageSource;)V", cancellable = true)
     public void onDeath(DamageSource source, CallbackInfo ci) {
         TameableEntity pet = (TameableEntity) (Object) this;
@@ -58,12 +62,17 @@ public abstract class TamableEntityMixin extends AnimalEntity implements Tameabl
         ci.cancel();
     }
 
+    private void Cure(){this.hasSoulBond = true;}
 
     public void tick(){
         if(!this.world.isClient && this.isAlive() && !this.isAiDisabled()){
             RegistryKey<World> world = this.getWorld().getRegistryKey();
             if(world != NightLightDim.NIGHTLIGHT && this.isRevived() && !this.hasStatusEffect(NLDStatusEffectRegister.SOUL_BOND)){
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 1, 10));
+                if(!this.hasSoulBond()){this.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 1, 10));}
+            }
+            if(this.isRevived() && !this.hasSoulBond() && this.hasStatusEffect(NLDStatusEffectRegister.SOUL_BOND) && this.hasStatusEffect(StatusEffects.REGENERATION)){
+                this.Cure();
+                this.removeStatusEffect(NLDStatusEffectRegister.SOUL_BOND);
             }
         }
         super.tick();
@@ -101,4 +110,5 @@ public abstract class TamableEntityMixin extends AnimalEntity implements Tameabl
         return 100.0;
     }
     public boolean isRevived(){return isRevived;}
+    public boolean hasSoulBond(){return hasSoulBond;}
 }

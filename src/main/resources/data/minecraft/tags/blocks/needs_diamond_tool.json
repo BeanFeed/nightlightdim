@@ -2,7 +2,8 @@
   "replace": false,
   "values": [
     "nightlightdim:deathstone_emerald_ore",
-    "nightlightdim:deathstone_redstone_ore"
+    "nightlightdim:deathstone_redstone_ore",
+    "nightlightdim:deathstone_condensed_soul_ore"
   ]
 }
 
