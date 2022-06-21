@@ -21,6 +21,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import tk.beanfeed.nightlightdim.Interfaces.PlayerEntityMixinExt;
 import tk.beanfeed.nightlightdim.Interfaces.TameableEntityExt;
+import tk.beanfeed.nightlightdim.entity.custom.ReaperEntity;
 
 public class DeathBlock extends Block {
     protected static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 15.9D, 16.0D);
@@ -45,7 +46,7 @@ public class DeathBlock extends Block {
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity){
         if(!world.isClient){
-            if (entity instanceof LivingEntity && !(entity instanceof WitherSkeletonEntity)) {
+            if (entity instanceof LivingEntity && !(entity instanceof ReaperEntity)) {
                 if(entity instanceof TameableEntity Te && ((TameableEntityExt)Te).isRevived() && !((TameableEntityExt)Te).hasSoulBond()){return;}
                 if(entity instanceof PlayerEntity Pe && ((PlayerEntityMixinExt)Pe).isRevived()){ return;}
 

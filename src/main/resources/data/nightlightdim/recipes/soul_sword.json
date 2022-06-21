@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  #",
-    " / ",
-    "/  "
+    "i",
+    "i",
+    "/"
   ],
   "key": {
-    "#": {
-      "item": "nightlightdim:dead_moss"
+    "i": {
+      "item": "nightlightdim:condensed_soul_ingot"
     },
     "/": {
       "item": "nightlightdim:dead_stick"
     }
   },
   "result": {
-    "item": "nightlightdim:reviving_rod",
+    "item": "nightlightdim:soul_sword",
     "count": 1
   }
 }

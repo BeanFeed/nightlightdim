@@ -11,7 +11,10 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib3.GeckoLib;
+import tk.beanfeed.nightlightdim.entity.NLDEntityRegister;
 import tk.beanfeed.nightlightdim.potions.NLDPotionRegister;
+import tk.beanfeed.nightlightdim.sounds.NLDSoundRegister;
 import tk.beanfeed.nightlightdim.statuseffects.NLDStatusEffectRegister;
 import tk.beanfeed.nightlightdim.blocks.NLDBlockRegister;
 import tk.beanfeed.nightlightdim.items.NLDItemRegister;
@@ -34,11 +37,14 @@ public class NightLightDim implements ModInitializer{
     public static SoundEvent THEME_EVENT = new SoundEvent(THEME);
     @Override
     public void onInitialize() {
+        GeckoLib.initialize();
         NLDBlockRegister.register();
         NLDToolRegister.register();
         NLDItemRegister.register();
         NLDStatusEffectRegister.register();
         NLDPotionRegister.register();
+        NLDSoundRegister.register();
+        NLDEntityRegister.registerAttributes();
         Registry.register(Registry.SOUND_EVENT, THEME, THEME_EVENT);
     }
 

@@ -3,10 +3,7 @@ package tk.beanfeed.nightlightdim.mixin;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LightningEntity;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -17,9 +14,11 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -30,7 +29,7 @@ import tk.beanfeed.nightlightdim.items.armor.NLDArmorRegister;
 import tk.beanfeed.nightlightdim.items.tool.NLDToolRegister;
 import tk.beanfeed.nightlightdim.statuseffects.NLDStatusEffectRegister;
 
-@Mixin(PlayerEntity.class)
+@Mixin(ServerPlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityMixinExt {
     boolean isRevived = false;
 
@@ -38,21 +37,20 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
         super(entityType, world);
     }
 
-    @Inject(at = @At("TAIL"), method = "Lnet/minecraft/entity/player/PlayerEntity;writeCustomDataToNbt(Lnet/minecraft/nbt/NbtCompound;)V", cancellable = true)
+    @Inject(at = @At("TAIL"), method = "writeCustomDataToNbt(Lnet/minecraft/nbt/NbtCompound;)V")
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         nbt.putBoolean("isRevived", isRevived);
     }
-    @Inject(at = @At("TAIL"), method = "Lnet/minecraft/entity/player/PlayerEntity;readCustomDataFromNbt(Lnet/minecraft/nbt/NbtCompound;)V", cancellable = true)
+    @Inject(at = @At("TAIL"), method = "readCustomDataFromNbt(Lnet/minecraft/nbt/NbtCompound;)V")
     public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {isRevived = nbt.getBoolean("isRevived");}
 
-    @Inject(at = @At("HEAD"), method = "Lnet/minecraft/entity/player/PlayerEntity;onDeath(Lnet/minecraft/entity/damage/DamageSource;)V", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath(Lnet/minecraft/entity/damage/DamageSource;)V")
     public void onDeath(DamageSource source, CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
-        boolean isWearingDamnedArmor = getWearingDamnedArmor(player);
-        if(source.getAttacker() instanceof PlayerEntity Pe && Pe.getMainHandStack().isOf(NLDToolRegister.SOUL_SWORD) && !isWearingDamnedArmor) {
-            Revive((ServerPlayerEntity) player);
-        }
-        ci.cancel();
+        ServerPlayerEntity player = (ServerPlayerEntity) (Object) this;
+        Entity Attacker = source.getAttacker();
+        if(Attacker instanceof LivingEntity Pe && Pe.getMainHandStack().isOf(NLDToolRegister.SOUL_SWORD) && !this.getWearingDamnedArmor(player)) {
+            Revive(player);
+        }else if(this.isRevived()){SendBack(player);}
     }
 
     private boolean getWearingDamnedArmor(PlayerEntity player) {
@@ -63,7 +61,14 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
         return false;
     }
 
-
+    private void SendBack(ServerPlayerEntity player){
+        player.setHealth(player.getMaxHealth());
+        ServerWorld world = player.getWorld();
+        ServerWorld serverWorld = world.getServer().getWorld(NightLightDim.NIGHTLIGHT);
+        double yPos = getSurfaceY(serverWorld, player.getBlockPos());
+        Vec3d spawnPos = new Vec3d(player.getX(), yPos + 1, player.getZ());
+        FabricDimensions.teleport(player, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
+    }
     private void Revive(ServerPlayerEntity player){
         player.setHealth(player.getMaxHealth());
         isRevived = true;
@@ -78,8 +83,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
         player.sendMessage(Text.of("Reviving At§a [" + (int)Math.round(spawnPos.x) + ", ~, " + (int)Math.round(spawnPos.z) + "]"), false);
         player.fallDistance = 0.0f;
         FabricDimensions.teleport(player, serverWorld, new TeleportTarget(spawnPos, new Vec3d(0.0D, 0.0D, 0.0D), 0.0F, 0.0F));
-
         LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
+        assert lightningEntity != null;
         lightningEntity.refreshPositionAfterTeleport(petPos);
         world.spawnEntity(lightningEntity);
     }
@@ -99,7 +104,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
     private void Cure(){this.isRevived = false;}
 
     public boolean isRevived(){return this.isRevived;}
-    @Inject(at= @At("HEAD"), method = "Lnet/minecraft/entity/player/PlayerEntity;tick()V")
+    @Inject(at= @At("HEAD"), method = "tick()V")
     public void tick(CallbackInfo ci){
         if(!this.world.isClient && this.isAlive()){
             RegistryKey<World> world = this.getWorld().getRegistryKey();
@@ -112,4 +117,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
             }
         }
     }
+
+
 }

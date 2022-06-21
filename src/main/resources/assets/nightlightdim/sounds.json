@@ -1,7 +1,9 @@
 {
   "nightlight": {
     "sounds": [
-      "nightlightdim:nightlight"
+      "nightlightdim:nightlight",
+      "nightlightdim:reaper_ambient",
+      "nightlightdim:reaper_groan"
     ]
   }
 }

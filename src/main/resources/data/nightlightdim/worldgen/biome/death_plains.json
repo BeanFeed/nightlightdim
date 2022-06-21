@@ -12,12 +12,12 @@
     "grass_color": 0,
     "foliage_color": 0,
     "grass_color_modifier": "none",
-    "ambient_sound": "nightlightdim:nightlight"
+    "ambient_sound": "minecraft:ambient.cave"
   },
   "spawners": {
     "creature": [
       {
-        "type": "minecraft:wither_skeleton",
+        "type": "nightlightdim:reaper",
         "weight": 10,
         "minCount": 1,
         "maxCount": 3

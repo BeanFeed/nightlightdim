@@ -13,16 +13,7 @@
     "foliage_color": 5125144,
     "grass_color_modifier": "none"
   },
-  "spawners": {
-    "creature": [
-      {
-        "type": "minecraft:skeleton",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 3
-      }
-    ]
-  },
+  "spawners": {},
   "spawn_costs": {},
   "carvers": {},
   "features": []

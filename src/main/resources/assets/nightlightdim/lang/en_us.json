@@ -28,8 +28,10 @@
   "item.nightlightdim.damned_leggings": "Damned Leggings",
   "item.nightlightdim.damned_boots": "Damned Boots",
   "item.nightlightdim.soul_sword": "Soul Sword",
+  "item.nightlightdim.reaper_spawn_egg": "Reaper Spawn Egg",
   "item.minecraft.potion.effect.soul_bonding": "Soul Bonding Potion",
   "item.minecraft.splash_potion.effect.soul_bonding": "Soul Bonding Splash Potion",
   "item.minecraft.lingering_potion.effect.soul_bonding": "Soul Bonding Lingering Potion",
-  "effect.nightlightdim.soul_bonding": "Soul Bonding"
+  "effect.nightlightdim.soul_bonding": "Soul Bonding",
+  "entity.nightlightdim.reaper": "Reaper"
 }

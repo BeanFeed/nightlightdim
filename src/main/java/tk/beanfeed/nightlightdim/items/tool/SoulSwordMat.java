@@ -16,7 +16,7 @@ public class SoulSwordMat implements ToolMaterial {
     }
     @Override
     public float getAttackDamage() {
-        return 18.0F;
+        return 0.0F;
     }
     @Override
     public int getMiningLevel() {

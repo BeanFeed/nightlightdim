@@ -9,7 +9,7 @@ import tk.beanfeed.nightlightdim.NightLightDim;
 
 public class NLDToolRegister {
     public static final RevivingRod REVIVING_ROD = new RevivingRod(RevivingRodMat.INSTANCE, new Item.Settings().group(NightLightDim.NLD).maxCount(1).rarity(Rarity.EPIC));
-    public static final SwordItem SOUL_SWORD = new SwordItem(SoulSwordMat.INSTANCE, 18, 2.4f, new Item.Settings().group(NightLightDim.NLD).maxCount(1).rarity(Rarity.RARE));
+    public static final SwordItem SOUL_SWORD = new SwordItem(SoulSwordMat.INSTANCE, 6, -2.0f, new Item.Settings().group(NightLightDim.NLD).maxCount(1).rarity(Rarity.RARE));
 
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(NightLightDim.MOD_ID, "reviving_rod"), REVIVING_ROD);
