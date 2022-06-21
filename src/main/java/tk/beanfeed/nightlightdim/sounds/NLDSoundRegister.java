@@ -6,9 +6,9 @@ import net.minecraft.util.registry.Registry;
 import tk.beanfeed.nightlightdim.NightLightDim;
 
 public class NLDSoundRegister {
-    private static Identifier rGroan = new Identifier("nightlightdim", "reaper_groan");
+    public static final Identifier rGroan = new Identifier("nightlightdim", "reaper_groan");
     public static SoundEvent REAPER_GROAN = new SoundEvent(rGroan);
-    private static Identifier rAmb = new Identifier(NightLightDim.MOD_ID, "reaper_ambient");
+    public static final Identifier rAmb = new Identifier(NightLightDim.MOD_ID, "reaper_ambient");
     public static SoundEvent REAPER_AMBIENT = new SoundEvent(rAmb);
 
     public static void register(){

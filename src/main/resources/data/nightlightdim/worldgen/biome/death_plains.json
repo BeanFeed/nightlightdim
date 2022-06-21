@@ -12,7 +12,18 @@
     "grass_color": 0,
     "foliage_color": 0,
     "grass_color_modifier": "none",
-    "ambient_sound": "minecraft:ambient.cave"
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 10,
+      "block_search_extent": 0,
+      "offset": 0
+    },
+    "music": {
+      "sound": "nightlightdim:nightlight",
+      "min_delay": 0,
+      "max_delay": 0,
+      "replace_current_music": false
+    }
   },
   "spawners": {
     "creature": [

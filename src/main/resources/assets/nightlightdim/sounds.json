@@ -1,9 +1,17 @@
 {
   "nightlight": {
     "sounds": [
-      "nightlightdim:nightlight",
-      "nightlightdim:reaper_ambient",
+      "nightlightdim:nightlight"
+    ]
+  },
+  "reaper_groan": {
+    "sounds": [
       "nightlightdim:reaper_groan"
+    ]
+  },
+  "reaper_ambient": {
+    "sounds": [
+      "nightlightdim:reaper_ambient"
     ]
   }
 }
